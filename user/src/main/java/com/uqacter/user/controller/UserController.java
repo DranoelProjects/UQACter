@@ -1,8 +1,6 @@
 package com.uqacter.user.controller;
 
 import org.springframework.web.bind.annotation.RestController;
-import lombok.extern.slf4j.Slf4j;
-
 import com.uqacter.user.entity.User;
 import com.uqacter.user.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +12,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/")
+    @CrossOrigin
+    @PostMapping(path = "/", consumes = "application/json", produces = "application/json")
     public User saveUser(@RequestBody User user){
         return userService.saveUser(user);
     }
