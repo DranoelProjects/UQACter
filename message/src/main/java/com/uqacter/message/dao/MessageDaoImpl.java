@@ -31,6 +31,18 @@ public class MessageDaoImpl implements MessageDao {
 		}
 		return null;
 	}
+	
+	@Override
+	public List<Message> findByUsers(int idUserA, int idUserB) {
+		List<Message> output = new ArrayList<>();
+		for (Message message : messages) {
+			if ((message.getEmitter() == idUserA && message.getReceiver() == idUserB) ||
+			    (message.getEmitter() == idUserB && message.getReceiver() == idUserA)) {
+				output.add(message);
+			}
+		}
+		return output;
+	}
 
 	@Override
 	public Message save(Message message) {

@@ -32,6 +32,11 @@ public class MessageController {
 		return messageDao.findById(id);
 	}
 	
+	@GetMapping(value = "/Messages/{idUserA}/{idUserB}")
+	public List<Message> printConversation(@PathVariable int idUserA, @PathVariable int idUserB) {
+		return messageDao.findByUsers(idUserA, idUserB);
+	}
+	
 	@PostMapping(value = "/Messages")
 	public ResponseEntity<Void> addMessage(@RequestBody Message message) {
 		Message messageAdded = messageDao.save(message);
