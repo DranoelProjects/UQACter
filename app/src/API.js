@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:9001/users'
+const baseUrl = 'http://localhost:9191'
 
 const putSettings = {
     method: 'PUT',
@@ -11,7 +11,7 @@ const putSettings = {
 export const saveUser = async (username) =>{
     try {
         putSettings.body = JSON.stringify({username});
-        await fetch(`${baseUrl}/`, putSettings);
+        await fetch(`${baseUrl}/users/`, putSettings);
     } catch (error) {
         console.error(error);
     }
