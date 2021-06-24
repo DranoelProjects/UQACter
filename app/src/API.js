@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:9001/users'
 
-const postSettings = {
-    method: 'POST',
+const putSettings = {
+    method: 'PUT',
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -10,13 +10,9 @@ const postSettings = {
 
 export const saveUser = async (username) =>{
     try {
-        postSettings.body = JSON.stringify({username});
-        const response = await fetch(`${baseUrl}/`, postSettings);
-        //const data = await response.json();
-        console.log(response);
+        putSettings.body = JSON.stringify({username});
+        await fetch(`${baseUrl}/`, putSettings);
     } catch (error) {
         console.error(error);
     }
 }
-
-// findUserById

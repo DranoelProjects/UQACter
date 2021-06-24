@@ -16,17 +16,7 @@ import lombok.NoArgsConstructor;
 public class User {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
-    private String username; 
-
-    public Long getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    private String username;
 
     public String getUsername() {
         return this.username;
@@ -35,5 +25,4 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-
 }
