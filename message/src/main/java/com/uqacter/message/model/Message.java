@@ -3,17 +3,17 @@ package com.uqacter.message.model;
 import java.util.Date;
 
 public class Message {
-	private int id;
+	private Long id;
 	private Date date;
 	private String text;
-	private int emitter;
-	private int receiver;
+	private String emitter;
+	private String receiver;
 	
 	public Message() {
 		super();
 	}
 
-	public Message(int id, Date date, String text, int emitter, int receiver) {
+	public Message(Long id, Date date, String text, String emitter, String receiver) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -22,11 +22,11 @@ public class Message {
 		this.receiver = receiver;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -46,19 +46,19 @@ public class Message {
 		this.date = date;
 	}
 
-	public int getEmitter() {
+	public String getEmitter() {
 		return emitter;
 	}
 
-	public void setEmitter(int emitter) {
+	public void setEmitter(String emitter) {
 		this.emitter = emitter;
 	}
 
-	public int getReceiver() {
+	public String getReceiver() {
 		return receiver;
 	}
 
-	public void setReceiver(int receiver) {
+	public void setReceiver(String receiver) {
 		this.receiver = receiver;
 	}
 	

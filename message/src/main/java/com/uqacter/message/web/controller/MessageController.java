@@ -28,13 +28,18 @@ public class MessageController {
     }
 	
 	@GetMapping(value = "/Messages/{id}")
-	public Message printMessage(@PathVariable int id) {
+	public Message printMessage(@PathVariable Long id) {
 		return messageDao.findById(id);
 	}
 	
-	@GetMapping(value = "/Messages/{idUserA}/{idUserB}")
-	public List<Message> printConversation(@PathVariable int idUserA, @PathVariable int idUserB) {
-		return messageDao.findByUsers(idUserA, idUserB);
+	@GetMapping(value = "/Messages/{userA}/{userB}")
+	public List<Message> printConversation(@PathVariable String userA, @PathVariable String userB) {
+		return messageDao.findByUsers(userA, userB);
+	}
+	
+	@GetMapping(value = "/Conversations/{userA}")
+	public List<String> printInterlocutor(@PathVariable String userA) {
+		return messageDao.findInterlocutors(userA);
 	}
 	
 	@PostMapping(value = "/Messages")
