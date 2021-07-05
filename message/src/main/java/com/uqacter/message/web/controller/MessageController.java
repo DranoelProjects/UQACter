@@ -21,41 +21,41 @@ import com.uqacter.message.model.Message;
 public class MessageController {
 	@Autowired
 	private MessageDao messageDao;
-	
-	@RequestMapping(value="/Messages", method=RequestMethod.GET)
+
+	@RequestMapping(value="/messages", method=RequestMethod.GET)
     public List<Message> listMessages() {
         return messageDao.findAll();
     }
-	
-	@GetMapping(value = "/Messages/{id}")
+
+	@GetMapping(value = "/messages/{id}")
 	public Message printMessage(@PathVariable Long id) {
 		return messageDao.findById(id);
 	}
-	
-	@GetMapping(value = "/Messages/{userA}/{userB}")
+
+	@GetMapping(value = "/messages/{userA}/{userB}")
 	public List<Message> printConversation(@PathVariable String userA, @PathVariable String userB) {
 		return messageDao.findByUsers(userA, userB);
 	}
-	
-	@GetMapping(value = "/Conversations/{userA}")
+
+	@GetMapping(value = "/conversations/{userA}")
 	public List<String> printInterlocutor(@PathVariable String userA) {
 		return messageDao.findInterlocutors(userA);
 	}
-	
-	@PostMapping(value = "/Messages")
+
+	@PostMapping(value = "/messages")
 	public ResponseEntity<Void> addMessage(@RequestBody Message message) {
 		Message messageAdded = messageDao.save(message);
-		
+
 		if (messageAdded == null) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
 				.buildAndExpand(messageAdded.getId())
 				.toUri();
-		
+
 		return ResponseEntity.created(location).build();
 	}
 }
