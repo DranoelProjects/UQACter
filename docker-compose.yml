@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+    gateway:
+        build: cloud-gateway
+        restart: always
+        network_mode: host
+        ports:
+          - 9191:9191
+        depends_on: [registry]
+    registry:
+        build: service-registry
+        restart: always
+        network_mode: host
+        ports:
+          - 8761:8761
+    user:
+        build: user
+        restart: always
+        network_mode: host
+        ports:
+          - 9001:9001
+        depends_on: [gateway]
+    message:
+        build: message
+        restart: always
+        network_mode: host
+        ports:
+          - 9002:9002
+        depends_on: [gateway]
