@@ -1,33 +1,20 @@
-import './App.css';
-import React, {
-  useState,
-} from 'react';
-import { ConversationList } from './components'
-import { saveUser } from './API';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import { Conversation, ConversationList, Login } from "./pages";
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [hasUsername, setHasUsername] = useState(false);
-
-  const handleSubmit = () => {
-    setHasUsername(true);
-    saveUser(username);
-  }
-
   return (
-    <div className="App">
-      {hasUsername ? (
-        <ConversationList username={username} />
-      ) : (
-        <header className="App-header">
-          <form className="inputUsernameForm" onSubmit={handleSubmit}>
-            <label>Identifiant :</label>
-            <input type="text" name="username" onChange={e => setUsername(e.target.value)} />
-            <input type="submit" value="Envoyer" />
-          </form>
-        </header>
-      )}
-    </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/conversations" component={ConversationList} />
+          <Route path="/conversations/:receiver" component={Conversation} />
+        </Switch>
+      </Router>
   );
 }
 

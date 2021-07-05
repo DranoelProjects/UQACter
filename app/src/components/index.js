@@ -1,1 +1,1 @@
-export { default as ConversationList } from './ConversationList';
+export { default as SendMessage } from './SendMessage';

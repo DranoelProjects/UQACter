@@ -1,8 +1,8 @@
 .App {
+  background-color: black;
   text-align: center;
 }
-.App-header {
-  background-color: #282c34;
+.App-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,5 +13,105 @@
 }
 .inputUsernameForm{
   display: flex;
+  font-weight: bold;
+  font-size: 2em;
   flex-direction: column;
+}
+.btnSubmit{
+  color: #048434;
+  font-weight: bold;
+  font-size: 0.7em;
+  background-color: white;
+}
+.inputFieldUsername{
+  font-size: 0.7em;
+  text-align: center;
+}
+h1 {
+  color: #048434;
+}
+.emitter{
+  background-color: #048434;
+  float: left;
+  margin-left: 8%;
+  text-align: left;
+  width: 40%;
+  padding: 0.5%;
+}
+.receiver{
+  background-color: #044cab;
+  float:right;
+  text-align: right;
+  margin-right: 8%;
+  width: 40%;
+  padding: 0.5%;
+}
+.message{
+  color: white;
+  height: auto;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 0.3em;
+}
+.error{
+  color: red;
+  font-size: 0.5em;
+}
+.messageInfo{
+  font-size: 0.5em;
+  display: flex;
+  flex-direction: column;
+  font-weight: lighter;
+}
+.allMessages{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+h2 {
+  color: white;
+  font-size: 1.5;
+  background-color: #048434;
+  width: 90%;
+  margin: 0.3em;
+}
+.messageContent{
+  margin: 0.3em;
+}
+.btnSendMessage{
+  color: #048434;
+  font-weight: bold;
+  font-size: 0.7em;
+  background-color: white;
+}
+.inputFieldMessage{
+  font-size: 0.7em;
+  width: 60%;
+  text-align: center;
+}
+.titleDiv{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.btnBack{
+  color: #048434;
+  font-weight: bold;
+  font-size: 0.7em;
+  background-color: white;
+  margin: 0.6em;
+  height: auto;
+}
+.allConversations{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.btnConversation{
+  color: #048434;
+  font-weight: bold;
+  font-size: 1.5em;
+  width: 80%;
+  background-color: white;
+  margin: 0.3em;
 }

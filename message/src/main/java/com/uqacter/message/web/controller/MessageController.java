@@ -5,13 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.uqacter.message.dao.MessageDao;
@@ -22,27 +16,27 @@ public class MessageController {
 	@Autowired
 	private MessageDao messageDao;
 	
-	@RequestMapping(value="/Messages", method=RequestMethod.GET)
+	@GetMapping(path = "/messages/", produces = "application/json")
     public List<Message> listMessages() {
         return messageDao.findAll();
     }
 	
-	@GetMapping(value = "/Messages/{id}")
+	@GetMapping(path = "/messages/{id}", produces = "application/json")
 	public Message printMessage(@PathVariable Long id) {
 		return messageDao.findById(id);
 	}
 	
-	@GetMapping(value = "/Messages/{userA}/{userB}")
+	@GetMapping(path = "/messages/{userA}/{userB}", produces = "application/json")
 	public List<Message> printConversation(@PathVariable String userA, @PathVariable String userB) {
 		return messageDao.findByUsers(userA, userB);
 	}
 	
-	@GetMapping(value = "/Conversations/{userA}")
+	@GetMapping(path = "/messages/conversations/{userA}", produces = "application/json")
 	public List<String> printInterlocutor(@PathVariable String userA) {
 		return messageDao.findInterlocutors(userA);
 	}
 	
-	@PostMapping(value = "/Messages")
+	@PostMapping(path = "/messages/", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Void> addMessage(@RequestBody Message message) {
 		Message messageAdded = messageDao.save(message);
 		

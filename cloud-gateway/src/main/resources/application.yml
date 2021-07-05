@@ -16,6 +16,12 @@ spring:
                   uri: lb://MESSAGE-SERVICE
                   predicates:
                     - Path=/messages/**
+            globalcors:
+                corsConfigurations:
+                  '[/**]':
+                    allowedOrigins: "http://localhost:3000"
+                    allowedMethods: "*"
+                    allowedHeaders: "*"
 
 eureka:
     client:

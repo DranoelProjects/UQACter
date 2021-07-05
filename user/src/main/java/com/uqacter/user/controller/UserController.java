@@ -12,13 +12,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @CrossOrigin
     @PutMapping(path = "/", consumes = "application/json", produces = "application/json")
     public User saveUser(@RequestBody User user){
         return userService.saveUser(user);
     }
 
-    @CrossOrigin
     @GetMapping(path = "/", produces = "application/json")
     public List<User> findAllUsers(){
         return userService.findAllUsers();
