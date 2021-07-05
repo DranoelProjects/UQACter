@@ -7,9 +7,9 @@ Il y a croncrètrement 2 microservices :
 - User
 - Message
 
-Pour lancer un microservice, le gateway et le register on peut utiliser la commande suivante (en se plaçant à la racine d'un des composants):  
+Pour lancer un microservice, le gateway et le register on peut utiliser la commande suivante (en se plaçant à la racine d'un des composants) :  
 ```mvnw spring-boot:run```  
 
-Pour lancer l'application après s'est placé à la racine de l'application /app, lancer les commandes suivantes :  
+Pour lancer l'application après s'être placé à la racine de l'application /app, lancer les commandes suivantes :  
 ```npm i```  
 ```npm start```  
