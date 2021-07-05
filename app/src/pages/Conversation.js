@@ -50,7 +50,7 @@ const Conversation = () => {
                                     <div className="emitter">
                                         <div className="messageInfo">
                                             <Moment date={item.date} format="YYYY/MM/DD hh:mm:ss"/>
-                                            <p>De {item.emitter} à {item.receiver}</p>
+                                            <p>De {item.emitter}</p>
                                         </div>
                                         <p className="messageContent">{item.text}</p>
                                     </div>
@@ -58,7 +58,7 @@ const Conversation = () => {
                                     <div className="receiver">
                                         <div className="messageInfo">
                                             <Moment date={item.date} format="YYYY/MM/DD hh:mm:ss"/>
-                                            <p>De {item.emitter} à {item.receiver}</p>
+                                            <p>De {item.emitter}</p>
                                         </div>
                                         <p className="messageContent">{item.text}</p>
                                     </div>
