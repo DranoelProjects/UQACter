@@ -39,17 +39,17 @@ public class MessageController {
 	@PostMapping(path = "/messages/", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Void> addMessage(@RequestBody Message message) {
 		Message messageAdded = messageDao.save(message);
-		
+
 		if (messageAdded == null) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
 				.buildAndExpand(messageAdded.getId())
 				.toUri();
-		
+
 		return ResponseEntity.created(location).build();
 	}
 }
